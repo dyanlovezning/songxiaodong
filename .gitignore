@@ -1,0 +1,7 @@
+
+# Helix Toolkit specific files
+!Models/obj/
+!Models/obj/**/*.obj
+BoltApp/bin
+BoltApp/obj
+.vs
