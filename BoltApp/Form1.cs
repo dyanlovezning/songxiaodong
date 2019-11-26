@@ -73,17 +73,22 @@ namespace BoltApp
 
         }
 
-        private void printS(double value, bool isMove2NewLine = true)
+        private void printS(double value, bool isMove2NewLine = true, string valueName = "\t")
         {
             if(isMove2NewLine)
-                ouput.AppendText(string.Format("{0:#0.0}", value) + nLine);
+                ouput.AppendText(valueName + string.Format("{0:#0.000}", value) + nLine);
             else
-                ouput.AppendText(string.Format("{0:#0.0}", value) + "\t");
+                ouput.AppendText(valueName + string.Format("{0:#0.000}", value) + "\t");
         }
 
         private void printD(double value1, double value2)
         {
-            ouput.AppendText(string.Format("{0:#0.0} \t {0:#0.0} \r\n", value1, value2));
+            string str1 = string.Format("< {0:#0.000} ,", value1, value2);
+            string str2 = string.Format(" {1:#0.000} > ", value1, value2);
+            str1= String.Format("{0,15}", str1);
+            str2 = String.Format("{0,15}", str2);
+
+            ouput.AppendText(str1 + str2);
         }
         private void lineFeed( )
         {
@@ -147,7 +152,7 @@ namespace BoltApp
             int nv = 3;//列数
             if (!checkValueInt(textBox2))
             {
-                ouput.AppendText("列数 输入格式错误！");
+                ouput.AppendText("列数 输入格式错误！\r\n");
                 return;
             }
             nv = ParseInt(textBox2);
@@ -157,7 +162,7 @@ namespace BoltApp
             double sh = 100;//列距
             if (!checkValueDouble(textBox4))
             {
-                ouput.AppendText("列距 输入格式错误！");
+                ouput.AppendText("列距 输入格式错误！\r\n");
                 return;
             }
             sh = ParseDouble(textBox4);
@@ -165,7 +170,7 @@ namespace BoltApp
             double sv = 100;//行距
             if (!checkValueDouble(textBox3))
             {
-                ouput.AppendText("行距 输入格式错误！");
+                ouput.AppendText("行距 输入格式错误！\r\n");
                 return;
             }
             sv = ParseDouble(textBox3);
@@ -184,7 +189,7 @@ namespace BoltApp
             double lx = 200;//锚板x方向长度
             if (!checkValueDouble(textBox5))
             {
-                ouput.AppendText("锚板x方向长度 输入格式错误！");
+                ouput.AppendText("锚板x方向长度 输入格式错误！\r\n");
                 return;
             }
             lx = ParseDouble(textBox5);
@@ -192,7 +197,7 @@ namespace BoltApp
             double ly = 200;//锚板y方向长度
             if (!checkValueDouble(textBox6))
             {
-                ouput.AppendText("锚板y方向长度 输入格式错误！");
+                ouput.AppendText("锚板y方向长度 输入格式错误！\r\n");
                 return;
             }
             ly = ParseDouble(textBox6);
@@ -200,7 +205,7 @@ namespace BoltApp
             double tb = 20;//锚板厚度
             if (!checkValueDouble(textBox7))
             {
-                ouput.AppendText("锚板厚度 输入格式错误！");
+                ouput.AppendText("锚板厚度 输入格式错误！\r\n");
                 return;
             }
             tb = ParseDouble(textBox7);
@@ -210,7 +215,7 @@ namespace BoltApp
             double Dm = 235;//锚板强度等级
             if (!checkValueDouble(textBox11))
             {
-                ouput.AppendText("锚板强度等级 输入格式错误！");
+                ouput.AppendText("锚板强度等级 输入格式错误！\r\n");
                 return;
             }
             Dm = ParseDouble(textBox11);
@@ -220,7 +225,7 @@ namespace BoltApp
             double Dc = 30;//混凝土基材强度等级
             if (!checkValueDouble(textBox8))
             {
-                ouput.AppendText("混凝土基材强度等级 输入格式错误！");
+                ouput.AppendText("混凝土基材强度等级 输入格式错误！\r\n");
                 return;
             }
             Dc = ParseDouble(textBox8);
@@ -228,7 +233,7 @@ namespace BoltApp
             double d = 20;//锚筋直径
             if (!checkValueDouble(textBox9))
             {
-                ouput.AppendText("锚筋直径 输入格式错误！");
+                ouput.AppendText("锚筋直径 输入格式错误！\r\n");
                 return;
             }
             d = ParseDouble(textBox9);
@@ -236,7 +241,7 @@ namespace BoltApp
             double Dl = 4.6;//螺栓等级
             if (!checkValueDouble(textBox10))
             {
-                ouput.AppendText("螺栓等级 输入格式错误！");
+                ouput.AppendText("螺栓等级 输入格式错误！\r\n");
                 return;
             }
             Dl = ParseDouble(textBox10);
@@ -244,7 +249,7 @@ namespace BoltApp
             double Nz = 0;//z轴拉力
             if (!checkValueDouble(textBox12))
             {
-                ouput.AppendText("z轴拉力 输入格式错误！");
+                ouput.AppendText("z轴拉力 输入格式错误！\r\n");
                 return;
             }
             Nz = ParseDouble(textBox12);
@@ -252,7 +257,7 @@ namespace BoltApp
             double Nzc = -100;//z轴压力,有此项时正压力填为0
             if (!checkValueDouble(textBox13))
             {
-                ouput.AppendText("z轴压力 输入格式错误！");
+                ouput.AppendText("z轴压力 输入格式错误！\r\n");
                 return;
             }
             Nzc = ParseDouble(textBox13);
@@ -260,7 +265,7 @@ namespace BoltApp
             double Vx = 200;//x向剪力
             if (!checkValueDouble(textBox14))
             {
-                ouput.AppendText("x向剪力 输入格式错误！");
+                ouput.AppendText("x向剪力 输入格式错误！\r\n");
                 return;
             }
             Vx = ParseDouble(textBox14);
@@ -269,7 +274,7 @@ namespace BoltApp
             double Vy = 0;//y向剪力
             if (!checkValueDouble(textBox15))
             {
-                ouput.AppendText("y向剪力 输入格式错误！");
+                ouput.AppendText("y向剪力 输入格式错误！\r\n");
                 return;
             }
             Vy = ParseDouble(textBox15);
@@ -278,7 +283,7 @@ namespace BoltApp
             double Mx = 0;//绕x轴正向弯矩
             if (!checkValueDouble(textBox16))
             {
-                ouput.AppendText("绕x轴正向弯矩 输入格式错误！");
+                ouput.AppendText("绕x轴正向弯矩 输入格式错误！\r\n");
                 return;
             }
             Mx = ParseDouble(textBox16);
@@ -286,7 +291,7 @@ namespace BoltApp
             double My = 200;//绕y轴负向弯矩
             if (!checkValueDouble(textBox17))
             {
-                ouput.AppendText("绕y轴负向弯矩 输入格式错误！");
+                ouput.AppendText("绕y轴负向弯矩 输入格式错误！\r\n");
                 return;
             }
             My = ParseDouble(textBox17);
@@ -294,7 +299,7 @@ namespace BoltApp
             double Tz = 0;//绕z轴扭矩
             if (!checkValueDouble(textBox18))
             {
-                ouput.AppendText("绕z轴扭矩 输入格式错误！");
+                ouput.AppendText("绕z轴扭矩 输入格式错误！\r\n");
                 return;
             }
             Tz = ParseDouble(textBox18);
@@ -369,8 +374,9 @@ namespace BoltApp
                 }
                 lineFeed();
                 //printf("\n");
-
             }
+            lineFeed();
+
             /*-------------------------计算以螺栓群受压一侧最外排螺栓为原点，单个螺栓的坐标*/
             int rxxi;
             for (rxxi = 0; rxxi < nv; rxxi++)
@@ -509,8 +515,8 @@ namespace BoltApp
                     }
                     // printf("Nsdh=%.2lf\n", Nsdh);
                     // printf("Nsdg=%.2lf\n", Nsdg);
-                    printS(Nsdh);
-                    printS(Nsdg);
+                    printS(Nsdh, true, "Nsdh= ");
+                    printS(Nsdg, true, "Nsdg= ");
                 }
                 else if ((Mn < 0) && (Mny >= 0) & (Mnx < 0))
                 {
@@ -547,8 +553,8 @@ namespace BoltApp
                         }
                         // printf("Nsdh=%.2lf\n", Nsdh);
                         // printf("Nsdg=%.2lf\n", Nsdg);
-                        printS(Nsdh);
-                        printS(Nsdg);
+                        printS(Nsdh, true, "Nsdh= ");
+                        printS(Nsdg, true, "Nsdg= ");
                     }
                     else
                     {
@@ -588,8 +594,8 @@ namespace BoltApp
                         }
                         //printf("Nsdh=%.2lf\n", Nsdh);
                         //printf("Nsdg=%.2lf\n", Nsdg);
-                        printS(Nsdh);
-                        printS(Nsdg);
+                        printS(Nsdh, true, "Nsdh= ");
+                        printS(Nsdg, true, "Nsdg= ");
                     }
                 }
                 else if ((Mn < 0) && (Mnx >= 0) && (Mny < 0))
@@ -628,8 +634,8 @@ namespace BoltApp
                         }
                         // printf("Nsdh=%.2lf\n", Nsdh);
                         // printf("Nsdg=%.2lf\n", Nsdg);
-                        printS(Nsdh);
-                        printS(Nsdg);
+                        printS(Nsdh, true, "Nsdh= ");
+                        printS(Nsdg, true, "Nsdg= ");
                     }
                     else
                     {
@@ -667,8 +673,8 @@ namespace BoltApp
                         }
                         // printf("Nsdh=%.2lf\n", Nsdh);
                         // printf("Nsdg=%.2lf\n", Nsdg);
-                        printS(Nsdh);
-                        printS(Nsdg);
+                          printS(Nsdh, true, "Nsdh= ");
+                    printS(Nsdg, true, "Nsdg= ");
                     }
                 }
                 else if ((Mn < 0) && (Mnx > 0) && (Mny > 0))
@@ -707,8 +713,8 @@ namespace BoltApp
                     }
                     // printf("Nsdh=%.2lf\n", Nsdh);
                     // printf("Nsdg=%.2lf\n", Nsdg);
-                    printS(Nsdh);
-                    printS(Nsdg);
+                    printS(Nsdh, true, "Nsdh= ");
+                    printS(Nsdg, true, "Nsdg= ");
                 }
                 else
                 {
@@ -746,8 +752,8 @@ namespace BoltApp
                     }
                     // printf("Nsdh=%.2lf\n", Nsdh);
                     //  printf("Nsdg=%.2lf\n", Nsdg);
-                    printS(Nsdh);
-                    printS(Nsdg);
+                    printS(Nsdh, true, "Nsdh= ");
+                    printS(Nsdg, true, "Nsdg= ");
                 }
             }
             /*-------------------------------------------------群锚在剪力和扭矩作用下的计算*/
@@ -832,7 +838,7 @@ namespace BoltApp
                                         printf("%\n");
                                 }
                 */
-                ouput.AppendText("剪扭作用下各螺栓剪力设计值" + nLine);
+                ouput.AppendText("\r\n剪扭作用下各螺栓剪力设计值" + nLine);
                 //printf("剪扭作用下各螺栓剪力设计值\n");
                 for (Vsi = 0; Vsi < nh * nv; Vsi++)
                 {
@@ -843,24 +849,27 @@ namespace BoltApp
                     //printf("%\n");
                 }
                 // printf("Vsdh=%.2lf\n", Vsdh);
-                printS(Vsdh);
+                printS(Vsdh, true, "Vsdh= ");
                 lineFeed();
                 /*-----------------------------------------------------------------拉剪复合应力*/
                 ljfh = Math.Sqrt((Nsdh / Ntb) * (Nsdh / Ntb) + (Vsdh / Vvb) * (Vsdh / Vvb));
                 if (ljfh <= 1 && (Vsdh <= Vcb))
                 {
                     // printf("拉剪复合应力=%.2lf<=1.0\n单个螺栓剪力最大值Vsdh=%.2lf<=螺栓承压强度设计值Vcb=%.2lf\n螺栓强度满足要求\n", ljfh, Vsdh, Vcb);
-                    ouput.AppendText(string.Format("拉剪复合应力={0:#0.0}<=1.0\r\n单个螺栓剪力最大值Vsdh={0:#0.0} <= 螺栓承压强度设计值Vcb={0:#0.0}\r\n螺栓强度满足要求\r\n", ljfh, Vsdh, Vcb));
+                    ouput.AppendText(string.Format("拉剪复合应力= {0:#0.000} <= 1.000 \r\n", ljfh));
+                    ouput.AppendText(string.Format("单个螺栓剪力最大值Vsdh= {0:#0.000} <= 螺栓承压强度设计值Vcb= {1:#0.000}\r\n", Vsdh, Vcb));
+                    ouput.AppendText(string.Format("螺栓强度满足要求。\r\n\r\n"));
+
                 }
                 else if (ljfh > 1)
                 {
                     // printf("拉剪复合应力=%.2lf>1.0,螺栓强度不满足要求\n", ljfh);
-                    ouput.AppendText(string.Format("拉剪复合应力={0:#0.0}>1.0, 螺栓强度不满足要求\r\n", ljfh));
+                    ouput.AppendText(string.Format("拉剪复合应力= {0:#0.000} > 1.000, 螺栓强度不满足要求\r\n", ljfh));
                 }
                 else if (Vsdh > Vcb)
                 {
                     // printf("单个螺栓剪力最大值Vsdh=%.2lf>螺栓承压强度设计值Vcb=%.2lf，螺栓强度不满足要求\n", Vsdh, Vcb);
-                    ouput.AppendText(string.Format("单个螺栓剪力最大值Vsdh={0:#0.0} > 螺栓承压强度设计值Vcb={0:#0.0}, 螺栓强度不满足要求\r\n", Vsdh, Vcb));
+                    ouput.AppendText(string.Format("单个螺栓剪力最大值Vsdh= {0:#0.000} > 螺栓承压强度设计值Vcb= {0:#0.000}, 螺栓强度不满足要求\r\n", Vsdh, Vcb));
                 }
             }
             /*-----------------------------------------------------------------拉剪复合应力*/
@@ -871,13 +880,13 @@ namespace BoltApp
                 if (fp <= (bolt.Fc(Dc)))
                 {
                     //  printf("混凝土在轴压力作用下的强度值fp=%.2lf<=fc=%.2lf,锚板面积满足要求\n", fp, Fc(Dc));
-                    ouput.AppendText(string.Format("混凝土在轴压力作用下的强度值 fp={0:#0.0} <= fc={0:#0.0}, 锚板面积满足要求\r\n", fp, bolt.Fc(Dc)));
+                    ouput.AppendText(string.Format("混凝土在轴压力作用下的强度值 fp={0:#0.000} <= fc={1:#0.000}, 锚板面积满足要求\r\n", fp, bolt.Fc(Dc)));
                 }
                 else
                 {
                     
                     //  printf("混凝土在轴压力作用下的强度值fp=%.2lf>fc=%.2lf,锚板面积不满足要求\n", fp, Fc(Dc));
-                    ouput.AppendText(string.Format("混凝土在轴压力作用下的强度值fp={0:#0.0} > fc={0:#0.0}, 锚板面积不满足要求\r\n", fp, bolt.Fc(Dc)));
+                    ouput.AppendText(string.Format("混凝土在轴压力作用下的强度值fp={0:#0.000} > fc={1:#0.000}, 锚板面积不满足要求\r\n", fp, bolt.Fc(Dc)));
                 }
             }
         }
